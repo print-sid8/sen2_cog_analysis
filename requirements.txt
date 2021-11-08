@@ -1,0 +1,10 @@
+requests
+numpy
+GDAL
+rasterio
+PIL
+pyproj
+shapely
+folium
+sklearn
+jupyter-notebook
