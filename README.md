@@ -46,7 +46,7 @@ The KMeans classification outputs are saved in `/kmeans_outputs/` as PNGs and Ge
 
 A JSON response containing NDVI statistics, links to color image, and the name of the Polygon that is processed is saved as `analysis_response.json`.
 
-The `main.py` script requires `--start_date`, `--end_date` and `cloud_cover`, as arguments. If they are not provided, the script defaults the "start_date" to (CURRENT DATE), "end_date" to (CURRENT DATE - 20 days), and "cloud_cover" to 10.
+The `main.py` script requires `--start_date`, `--end_date` and `--cloud_cover`, as arguments. If they are not provided, the script defaults the "start_date" to (CURRENT DATE), "end_date" to (CURRENT DATE - 20 days), and "cloud_cover" to 10.
 
 To run the script, use the terminal to navigate to the cloned repo, and checkout the `--help` option -
 
