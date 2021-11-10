@@ -34,8 +34,12 @@ if __name__ == "__main__":
         clargs.start_date = datetime.datetime.today().strftime("%Y-%m-%d")
         clargs.end_date = (datetime.datetime.today() - datetime.timedelta(days=20)).strftime("%Y-%m-%d")
         clargs.cloud_cover = 10
+    elif any(elem is None for elem in [clargs.start_date,clargs.end_date, clargs.cloud_cover]):
+            logger.debug("Some arguments not provided by user")
+            print("\nKindly provide all the required inputs for the main.py script. Please check arguments using 'python3 main.py --help'\n")
+            exit(0)
     else:
-        logger.debug(f"Arguments are provided by user - start={clargs.start_date}, end={clargs.end_date}")
+        logger.debug(f"Arguments are provided by user - start={clargs.start_date}, end={clargs.end_date}, cloud_cover={clargs.cloud_cover}")
         print(f"NDVI and KMeans Analysis beginning for date range = {clargs.end_date} to {clargs.start_date} and cloud cover percentage less than = {clargs.cloud_cover}\n")
     
     logger.info("Querying given Github GIST to get raw GeoJSON")
