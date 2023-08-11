@@ -5,7 +5,7 @@ import logging
 import numpy as np
 import json
 
-from scripts.ndvi_and_kmeans_gen import *
+from scripts.ndvi_gen import *
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
             exit(0)
     else:
         logger.debug(f"Arguments are provided by user - start={clargs.start_date}, end={clargs.end_date}")
-        logger.info(f"NDVI and KMeans Analysis beginning for date range = {clargs.end_date} to {clargs.start_date}\n")
+        logger.info(f"NDVI analysis beginning for date range = {clargs.end_date} to {clargs.start_date}\n")
         start_date = clargs.start_date
         end_date = clargs.end_date
 

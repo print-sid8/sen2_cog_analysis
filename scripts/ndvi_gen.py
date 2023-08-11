@@ -150,35 +150,6 @@ def compute_ndvi_arrays(nir, red, polygon):
     return ndvi_array, red_transform, crs
 
 
-
-def create_kmeans_output(self,ndvi_array,transform_info,crs,index):
-
-        if np.count_nonzero(np.isnan(ndvi_array)) > 0:
-            logger.debug('NAN values found in NDVI array, making them 99')
-            ndvi = np.nan_to_num(ndvi_array,nan=99)
-        
-        ### Preparing for KMeans
-
-        # Initializing empty array, to later add flattened NDVI for KMeans classfier
-        flatndvi = np.empty((ndvi.shape[0]*ndvi.shape[1],1))
-
-        logger.info('Flattening NDVI array..')
-        flatndvi[:, 0] = ndvi.flatten()
-
-        ## Applying KMeans clustering to the NDVI array
-
-        logger.info("KMeans clustering begins..")
-
-        km = KMeans(n_clusters= self.kmeans_clusters,random_state=0)
-        logger.debug('Fitting KMeans Clusters..')
-        km.fit(flatndvi)
-        logger.debug('Predicting Classes/Clusters..')
-        km.predict(flatndvi)
-        
-        logger.info('KMeans output ready and reshaped!')
-        out_dat = km.labels_.reshape((ndvi.shape[0], ndvi.shape[1]))
-
-
 def process_image(payload, multishape, image, geom_index):
     nir, red, date, tci_link = get_band_riodatasets(image)
     ndvi, transform_info, crs = compute_ndvi_arrays(nir, red, multishape.geoms[geom_index])
