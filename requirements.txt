@@ -5,6 +5,3 @@ rasterio
 PIL
 pyproj
 shapely
-folium
-sklearn
-jupyter-notebook

@@ -28,9 +28,6 @@ The following packages must be available in the Python installation -
 - PIL
 - pyproj
 - shapely
-- folium
-- sklearn
-- jupyter-notebook
 
 The above packages can be installed using the `requirements.txt` file using :
 
